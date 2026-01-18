@@ -11,81 +11,37 @@
 # When you're ready to continue playing the game, though, stick to
 # the scrolls. If you're stuck, go to Gitlab and create an issue.
 # We're happy to provide hints.
-# 
-echo
-if ! grep  --quiet --only-matching diamonds <<< $I; then
+#
+if [[ -e potion ]]; then
     cat << EOF
-You have found a stash of **diamonds**!  They are old and worn
-with age,  but they still gleam in the magickal light
-emanating from your eyes.
+You have summoned a potion from afar.  You drink it quickly
+and feel a surge of strength.
 
-Prefix this item to your inventory:
-
-export I=diamonds,\$I
-
-Remember, you can check your inventory:
-
-echo \$I
+Add 5 HP to your score.
 
 EOF
 else
-    echo "This treasure has already been taken."
-    echo
+    cat << EOF
+A page from a druid's tome of incantations lies on the
+ground.  It reveals to you how to summon a healing potion:
+
+# To find a file on your system, use the find command.  For
+# example, to search this room: 
+
+find . -name "potion"
+
+# Once you've found a potion, copy it to this directory and
+# run this spell script again.
+
+There are no potions in this room.  But try searching
+starting at the entrance.
+
+Hint: use pwd to determine how many rooms (folders) are
+between you and the entrance.
+
+EOF
+
 fi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -365,5 +321,5 @@ fi
 # it means they are applications.
 # Try this:
 #
-# ./treasure
+# ./spell
 
